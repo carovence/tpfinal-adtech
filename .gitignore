@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# === Específico del TP ===
+
+# Credenciales (NUNCA commitear esto)
+.env
+*.json
+service-account-key.json
+credentials/
+
+# Mac
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+
+# Airflow local
+airflow/logs/
+airflow/airflow.db
+airflow/airflow.cfg
+
+# Data generada localmente
+*.csv
+*.parquet
