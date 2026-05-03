@@ -143,7 +143,7 @@ with DAG(
     dag_id="tp_pipeline",
     description="Pipeline de recomendaciones AdTech (TP Final)",
     schedule="0 3 * * *",  # Cada día a las 3 AM (procesa los datos del día anterior)
-    start_date=datetime.datetime(2026, 5, 4),
+    start_date=datetime.datetime(2026, 5, 3),
     catchup=False,
     tags=["tp", "adtech"],
 ) as dag:
