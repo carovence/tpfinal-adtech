@@ -25,7 +25,7 @@ from airflow.sdk import DAG
 from airflow.providers.standard.operators.python import PythonOperator
 
 
-GCS_BUCKET = os.getenv("GCS_BUCKET", "tp-adtech-data")
+GCS_BUCKET = os.getenv("GCS_BUCKET", "tp-adtech-data-cnaa")
 TOP_N = 20
 
 PG_CONFIG = {

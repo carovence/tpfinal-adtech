@@ -17,7 +17,7 @@ from google.cloud import storage
 # ================================================================
 # CONFIGURACIÓN — ajustar según el bucket del equipo
 # ================================================================
-BUCKET_NAME = "tp-adtech-data"
+BUCKET_NAME = "tp-adtech-data-cnaa"
 RAW_PREFIX = "raw"
  
 # Cantidad de eventos por día (la notebook original tenía 100.000 totales)
