@@ -51,3 +51,36 @@ def history(adv: str):
             return cursor.fetchall()
     finally:
         connection.close()          
+
+@app.get("/stats")
+def stats():
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT\n"
+                "  COUNT(*) AS total_recomendaciones,\n"
+                "  COUNT(DISTINCT advertiser_id) AS advertisers_unicos,\n"
+                "  COUNT(DISTINCT date) AS fechas_con_datos,\n"
+                "  MAX(date) AS ultima_fecha\n"
+                "FROM recommendations"
+            )
+            generales = cursor.fetchone()
+
+            cursor.execute(
+                "SELECT model, COUNT(*) AS total\n"
+                "FROM recommendations\n"
+                "GROUP BY model\n"
+                "ORDER BY model"
+            )
+            por_modelo = cursor.fetchall()
+
+            return {
+                "total_recomendaciones": generales["total_recomendaciones"],
+                "advertisers_unicos": generales["advertisers_unicos"],
+                "fechas_con_datos": generales["fechas_con_datos"],
+                "ultima_fecha": generales["ultima_fecha"],
+                "recomendaciones_por_modelo": por_modelo,
+            }
+    finally:
+        connection.close()
