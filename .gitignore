@@ -217,9 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# === Específico del TP ===
-
-# Credenciales (NUNCA commitear esto)
+# Credenciales 
 .env
 *.json
 service-account-key.json
